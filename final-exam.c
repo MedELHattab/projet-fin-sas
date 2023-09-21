@@ -1,4 +1,4 @@
-int main() {
+ int main() {
     int choix;
     do {
         printf("\nMenu :\n");
@@ -6,7 +6,7 @@ int main() {
         printf("2. Afficher toutes les taches\n");
         printf("3. Supprimer une tache \n");
         printf("4. Rechercher une tache \n");
-	printf("5. Afficher les Statistiques \n");
+	    printf("5. Afficher les Statistiques \n");
         printf("6. Quitter\n");
         printf("Choix : ");
         scanf("%d", &choix);
@@ -33,8 +33,31 @@ int main() {
                     }while (choice != 2);
                  break;
             case 2:
-                afficherToutesLesTaches();
-                break;
+                int aff ;
+                do {
+                    printf("1.Trier les tâches par ordre alphabétique.\n");
+                    printf("2.Trier les tâches par deadline.\n");
+                    printf("3.Afficher les tâches dont le deadline est dans 3 jours ou moins.\n");
+                    printf("entrez votre choix: ");
+                    scanf("%d",&aff);
+                    switch(aff){
+                        case 1 :
+                        printf("fdgg\n");
+                        break;
+                        case 2 :
+                        printf("fdgg\n");
+                        break;
+                        case 3 :
+                        printf("fdgg\n");
+                        break ;
+                        case 4 :
+                        printf("retour au menu principale \n");
+                        break;
+                        default :
+                         printf("Choix invalide. Veuillez reessayer.\n");
+                    }
+                    } while (aff != 4) ;
+                    break;
             case 3:
                 if (nombreDeTaches > 0) {
                     int idASupprimer;

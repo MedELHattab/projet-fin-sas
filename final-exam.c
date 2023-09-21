@@ -13,9 +13,8 @@ int main() {
 
         switch (choix) {
             case 1:
-                case 1:
-                    int choice;
-		    do {
+                int choice;
+		        do {
                     printf("1.ajouter une nouvelle taches \n");
                     printf("2.quitter \n");
                     printf("entrez votre choix: ");
@@ -31,7 +30,7 @@ int main() {
                     default:
                     printf("Choix invalide. Veuillez reessayer.\n");
                     }
-                    }while (choice != 2)
+                    }while (choice != 2);
                  break;
             case 2:
                 afficherToutesLesTaches();

@@ -6,14 +6,33 @@ int main() {
         printf("2. Afficher toutes les taches\n");
         printf("3. Supprimer une tache \n");
         printf("4. Rechercher une tache \n");
-        printf("5. Quitter\n");
+	printf("5. Afficher les Statistiques \n");
+        printf("6. Quitter\n");
         printf("Choix : ");
         scanf("%d", &choix);
 
         switch (choix) {
             case 1:
-                ajouterTache();
-                break;
+                case 1:
+                    int choice;
+		    do {
+                    printf("1.ajouter une nouvelle taches \n");
+                    printf("2.quitter \n");
+                    printf("entrez votre choix: ");
+                    scanf("%d",&choice);
+    
+                    switch (choice) {
+                    case 1 :
+                    ajouterTache();
+                    break ;
+                    case 2 :
+                    printf("retour au menu principale \n");
+                    break ;
+                    default:
+                    printf("Choix invalide. Veuillez reessayer.\n");
+                    }
+                    }while (choice != 2)
+                 break;
             case 2:
                 afficherToutesLesTaches();
                 break;
@@ -48,6 +67,8 @@ int main() {
                              scanf("%d", &titleRechercher);
                              rechercherTache(titleRechercher);
                              break ;
+			default:
+                        printf("Choix invalide. Veuillez reessayer.\n");
                         } 
                 }    
                 else {
@@ -60,7 +81,7 @@ int main() {
             default:
                 printf("Choix invalide. Veuillez reessayer.\n");
         }
-    } while (choix != 5);
+    } while (choix != 6);
 
     return 0;
 }

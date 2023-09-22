@@ -1,14 +1,17 @@
- int main() {
+int main() {
     int choix;
     do {
+        printf("************************************************\n");     
         printf("\nMenu :\n");
-        printf("1. Ajouter une nouvelle tache\n");
-        printf("2. Afficher toutes les taches\n");
-        printf("3. Supprimer une tache \n");
-        printf("4. Rechercher une tache \n");
-	    printf("5. Afficher les Statistiques \n");
+        printf("1. Ajouter une nouvelle tache.\n");
+        printf("2. Afficher toutes les taches.\n");
+        printf("3. Supprimer une tache.\n");
+        printf("4. Rechercher une tache.\n");
+        printf("5. Modifier une tache.\n");
+	    printf("7. Afficher les Statistiques \n");
         printf("6. Quitter\n");
-        printf("Choix : ");
+        printf("************************************************\n"); 
+        printf("Entrez votre choix : ");
         scanf("%d", &choix);
 
         switch (choix) {
@@ -97,7 +100,10 @@
                     printf("La liste de taches est vide.\n");
                 }
                 break;
-            case 5:
+            case 5 :
+            modifyTask() ;
+            break ;
+            case 6:
                 printf("Au revoir !\n");
                 break;
             default:

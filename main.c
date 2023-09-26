@@ -38,9 +38,40 @@ void ajouterTache() {
     nombreDeTaches++;
 }
 
-// Fonction pour afficher toutes les tâches
-void afficherToutesLesTaches() {
-    printf("\nListe de taches :\n");
+// Fonction pour afficher les tâches par ordre alphabetique
+void trierTachesParTitre() {
+    for (int i = 0; i < nombreDeTaches - 1; i++) {
+        for (int j = 0; j < nombreDeTaches - i - 1; j++) {
+            // Comparez les titres des tâches et échangez-les si nécessaire
+            if (strcasecmp(titres[j], titres[j + 1]) > 0) {
+                // Échangez les titres
+                char temp[50];
+                strcpy(temp, titres[j]);
+                strcpy(titres[j], titres[j + 1]);
+                strcpy(titres[j + 1], temp);
+
+                // Échangez d'autres données de tâche si nécessaire
+                // Par exemple, échangez les descriptions, deadlines et statuts de la même manière
+                char tempDesc[100];
+                strcpy(tempDesc, descriptions[j]);
+                strcpy(descriptions[j], descriptions[j + 1]);
+                strcpy(descriptions[j + 1], tempDesc);
+
+                char tempDeadline[20];
+                strcpy(tempDeadline, deadlines[j]);
+                strcpy(deadlines[j], deadlines[j + 1]);
+                strcpy(deadlines[j + 1], tempDeadline);
+
+                char tempStatut[20];
+                strcpy(tempStatut, statuts[j]);
+                strcpy(statuts[j], statuts[j + 1]);
+                strcpy(statuts[j + 1], tempStatut);
+            }
+        }
+    }
+
+    // Affichez les tâches triées
+    printf("\nListe de taches triees par ordre alphabetique :\n");
     for (int i = 0; i < nombreDeTaches; i++) {
         printf("ID : %d\n", id[i]);
         printf("Titre : %s\n", titres[i]);
@@ -193,7 +224,7 @@ void stat3() {
 int main() {
     int choix;
     do {
-        printf("******\n");
+        printf("**\n");
         printf("\nMenu :\n");
         printf("1. Ajouter une nouvelle tache.\n");
         printf("2. Afficher toutes les taches.\n");
@@ -202,7 +233,7 @@ int main() {
         printf("5. Modifier une tache.\n");
         printf("6. Afficher les Statistiques.\n");
         printf("7. Quitter\n");
-        printf("******\n");
+        printf("**\n");
         printf("Entrez votre choix : ");
         scanf("%d", &choix);
 
@@ -238,7 +269,7 @@ int main() {
                     scanf("%d", &aff);
                     switch (aff) {
                         case 1:
-                            // Mettez ici la logique pour trier par ordre alphabétique
+                            trierTachesParTitre();
                             printf("Trier par ordre alphabétique\n");
                             break;
                         case 2:
@@ -272,6 +303,7 @@ int main() {
                     int choixRechercher;
                     printf("1. Chercher par ID.\n");
                     printf("2. Chercher par titre.\n");
+                    printf("3.retour au menu principal.\n");
                     printf("Entrez votre choix : ");
                     scanf("%d", &choixRechercher);
                     switch (choixRechercher) {
